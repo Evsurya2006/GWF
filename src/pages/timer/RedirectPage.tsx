@@ -27,7 +27,11 @@ export default function RedirectPage() {
 
       // Increment counter and redirect
       await incrementClickCount(link.id!, link.clickCounter || 0);
-      window.location.href = link.originalUrl;
+      let redirectUrl = link.originalUrl;
+      if (!/^https?:\/\//i.test(redirectUrl)) {
+        redirectUrl = 'https://' + redirectUrl;
+      }
+      window.location.href = redirectUrl;
     }
 
     processRedirect();
