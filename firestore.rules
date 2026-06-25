@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Read access is generally public for articles
+    match /articles/{articleId} {
+      allow read: if true;
+      allow write: if true; // In production, we'd restrict write to authenticated admin
+    }
+    
+    // Shortlinks can be read (to resolve them) and written
+    match /shortlinks/{linkId} {
+      allow read: if true;
+      allow write: if true;
+    }
+    
+    // Settings can be read and written
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}
