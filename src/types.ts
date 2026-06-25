@@ -56,4 +56,8 @@ export interface SiteSettings {
     facebook: string;
     linkedin: string;
   };
+  headerAdCode?: string;
+  sidebarAdCode?: string;
+  footerAdCode?: string;
+  inArticleAdCode?: string;
 }

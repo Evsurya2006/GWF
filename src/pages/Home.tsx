@@ -99,26 +99,60 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl -z-10" />
       </section>
 
-      {/* Why Choose Us */}
-      <section id="about" className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why millions trust us</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">We provide unparalleled financial clarity with bank-grade security and blazing fast tools.</p>
+      {/* Finance Categories Section */}
+      <section id="categories" className="py-[100px] bg-white">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <div className="text-center mb-[60px]">
+            <span className="block text-primary font-bold uppercase tracking-[1px] text-sm mb-4">
+              POPULAR CATEGORIES
+            </span>
+            <h2 className="font-['Poppins',sans-serif] font-bold text-[28px] md:text-[36px] lg:text-[48px] text-[#111827] mb-6 leading-tight">
+              Popular Finance Categories
+            </h2>
+            <p className="max-w-[650px] mx-auto text-[#6B7280] text-[18px]">
+              Explore our curated selection of financial topics designed to help you navigate and master your wealth.
+            </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]">
             {[
-              { icon: Shield, title: 'Bank-grade Security', desc: 'Your data is protected with industry-leading encryption and security protocols.' },
-              { icon: Zap, title: 'Lightning Fast', desc: 'Our platform is optimized for speed, ensuring you get the information you need instantly.' },
-              { icon: TrendingUp, title: 'Data-driven Insights', desc: 'Make better decisions with our advanced analytics and market research.' }
-            ].map((feature, i) => (
-              <div key={i} className="text-center">
-                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
-                  <feature.icon className="w-8 h-8" />
+              {
+                icon: '💰',
+                title: 'Saving',
+                desc: 'Learn effective strategies to build your emergency fund and save for future goals securely.'
+              },
+              {
+                icon: '📈',
+                title: 'Investing',
+                desc: 'Discover how to grow your wealth through stocks, mutual funds, and diversified portfolios.'
+              },
+              {
+                icon: '🏦',
+                title: 'Banking',
+                desc: 'Find the best banking solutions, accounts, and services to manage your money efficiently.'
+              },
+              {
+                icon: '💳',
+                title: 'Credit Cards',
+                desc: 'Compare and choose the right credit cards to maximize rewards and build your credit score.'
+              }
+            ].map((category, i) => (
+              <div 
+                key={i} 
+                className="bg-white rounded-[18px] p-[35px] border border-[#EEF2F7] cursor-pointer transition-all duration-[350ms] ease-in-out hover:-translate-y-[10px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_40px_rgba(22,163,74,0.18)] group flex flex-col items-center text-center"
+              >
+                <div className="w-[80px] h-[80px] rounded-full bg-[#DCFCE7] flex items-center justify-center text-[36px] mb-[25px] transition-transform duration-300 group-hover:scale-110 shrink-0">
+                  {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+                <h3 className="font-['Poppins',sans-serif] font-bold text-[28px] text-[#111827] mb-[18px]">
+                  {category.title}
+                </h3>
+                <p className="text-[#6B7280] text-[16px] leading-[1.8] mb-8 flex-grow">
+                  {category.desc}
+                </p>
+                <div className="text-primary font-bold flex items-center gap-2 mt-auto transition-all duration-300 group-hover:tracking-[1px]">
+                  Read More <span>→</span>
+                </div>
               </div>
             ))}
           </div>

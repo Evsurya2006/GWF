@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import { TrendingUp, Lock } from 'lucide-react';
+import { useNavigate, Link } from 'react-router';
+import { TrendingUp, Lock, X } from 'lucide-react';
 
 export default function AdminLogin() {
   const [username, setUsername] = useState('');
@@ -19,8 +19,14 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAF8] flex items-center justify-center p-4">
-      <div className="bg-white rounded-[24px] shadow-xl w-full max-w-md p-8 border border-gray-100">
+    <div className="min-h-screen bg-[#F8FAF8] flex items-center justify-center p-4 relative">
+      <Link to="/" className="absolute top-6 left-6 p-2 bg-white rounded-full shadow-sm text-gray-500 hover:text-gray-900 transition-colors">
+        <X className="w-6 h-6" />
+      </Link>
+      <div className="bg-white rounded-[24px] shadow-xl w-full max-w-md p-8 border border-gray-100 relative">
+        <Link to="/" className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 transition-colors">
+          <X className="w-5 h-5" />
+        </Link>
         <div className="flex flex-col items-center mb-8">
           <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center mb-4">
             <TrendingUp className="w-6 h-6 text-white" />

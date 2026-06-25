@@ -15,7 +15,11 @@ export default function AdminSettings() {
     googleAnalyticsId: '',
     searchConsoleTag: '',
     metaTags: '',
-    socialLinks: { twitter: '', facebook: '', linkedin: '' }
+    socialLinks: { twitter: '', facebook: '', linkedin: '' },
+    headerAdCode: '',
+    sidebarAdCode: '',
+    footerAdCode: '',
+    inArticleAdCode: ''
   });
   const [isSaving, setIsSaving] = useState(false);
 
@@ -119,6 +123,31 @@ export default function AdminSettings() {
             <div className="md:col-span-2">
               <label className="block text-sm font-semibold text-gray-700 mb-1.5">Custom Meta Tags (HTML)</label>
               <textarea name="metaTags" value={settings.metaTags} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary h-32 font-mono text-sm" placeholder="<meta name='...'>" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h4 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+            <span className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center text-sm">4</span> 
+            Ads & Monetization
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Header Ad (728x90)</label>
+              <textarea name="headerAdCode" value={settings.headerAdCode || ''} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary h-32 font-mono text-sm" placeholder="<!-- Header Ad Code -->" />
+            </div>
+            <div className="md:col-span-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Sidebar Ad (300x250 Medium Rectangle)</label>
+              <textarea name="sidebarAdCode" value={settings.sidebarAdCode || ''} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary h-32 font-mono text-sm" placeholder="<!-- Sidebar Ad Code -->" />
+            </div>
+            <div className="md:col-span-1">
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">In-Article Ad (300x250 Medium Rectangle)</label>
+              <textarea name="inArticleAdCode" value={settings.inArticleAdCode || ''} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary h-32 font-mono text-sm" placeholder="<!-- In-Article Ad Code -->" />
+            </div>
+            <div className="md:col-span-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Footer Ad (728x90)</label>
+              <textarea name="footerAdCode" value={settings.footerAdCode || ''} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-primary h-32 font-mono text-sm" placeholder="<!-- Footer Ad Code -->" />
             </div>
           </div>
         </section>
